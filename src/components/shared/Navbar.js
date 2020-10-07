@@ -13,6 +13,7 @@ const Navbar = () => {
       <div className="navbar_right">
         {currentUser.length !== 0 ? 
           <div style={{display: 'flex', height: '99px', marginRight: '100px'}}>
+            <Link to='/products' className='nav-link'>Produkter</Link>
             <Link to='/work_days' className='nav-link'>Arbejds dage</Link>
             <Link to='/services' className='nav-link'>Ydelser</Link>
             <Link to='/' className='nav-link'>Bestil tid</Link>

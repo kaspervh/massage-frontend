@@ -10,6 +10,7 @@ const WorkDayIndex = () => {
   const workDays = useSelector(state => state.WorkDayReducer);
 
   useEffect(() => {
+    console.log("CurrentUser", currentuser)
     dispatch(GetWorkDays(currentuser.user.id))
   }, [])
 

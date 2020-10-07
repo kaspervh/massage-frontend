@@ -10,6 +10,9 @@ import NewWorkDay from './components/workdays/NewWorkDayComponent';
 import WorkDayIndex from './components/workdays/WorkDayIndex';
 import WorkDayShow from './components/workdays/WorkDayShow';
 import EditWorkDay from './components/workdays/EditWorkDay';
+import ProductsIndex from './components/products/ProductsIndex';
+import NewProduct from './components/products/NewProduct';
+import EditProduct from './components/products/EditProduct';
 
 function App() {
   return (
@@ -23,6 +26,11 @@ function App() {
           <Route path='/work_days' exact component={WorkDayIndex} />
           <Route path='/work_days/show/:id' exact component={WorkDayShow} />
           <Route path='/work_day/edit/:id' exact component={EditWorkDay} />
+          <Route path='/products/new' exact component={NewProduct}/>
+          <Route path='/products/edit/:id' exact component={EditProduct}/>
+          <Route path='/products' exact component={ProductsIndex}/>
+
+
           <Route path='/services' exact component={Services} />
         </Switch>
         <Footer/>
