@@ -1,0 +1,3 @@
+const AppointmentReducer = (state = [], action) => {
+  
+}

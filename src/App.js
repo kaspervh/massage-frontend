@@ -13,6 +13,7 @@ import EditWorkDay from './components/workdays/EditWorkDay';
 import ProductsIndex from './components/products/ProductsIndex';
 import NewProduct from './components/products/NewProduct';
 import EditProduct from './components/products/EditProduct';
+import NewAppointment from './components/appointments/NewAppointment';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ function App() {
           <Route path='/products/new' exact component={NewProduct}/>
           <Route path='/products/edit/:id' exact component={EditProduct}/>
           <Route path='/products' exact component={ProductsIndex}/>
-
+          <Route path='/appointments' exact component={NewAppointment} />  
 
           <Route path='/services' exact component={Services} />
         </Switch>
