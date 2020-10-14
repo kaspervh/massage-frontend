@@ -156,9 +156,9 @@
   background-color: grey;
 }
 
-.service_image img{
-  height: 100%;
+img{
   width: 100%;
+  height: 100%;
 }
 
 .form_box{
@@ -212,4 +212,10 @@ td{
 
 .button-purple:hover{
   cursor: pointer;
+}
+
+.image_preview{
+  height:100px;
+  width:200px;
+  overflow: hidden;
 }
