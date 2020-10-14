@@ -1,13 +1,15 @@
 import React, {useEffect} from 'react'
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {GetProductsAction} from '../actions/productsAction';
 
 const Home = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() => {
-    console.log(currentUser)
-  }, [currentUser])
+    dispatch(GetProductsAction)
+  }, [])
 
   return(
     <div className='container'>
