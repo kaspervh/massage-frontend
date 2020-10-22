@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetWorkDays} from '../../actions/WorkDayAction';
 import {Link, useHistory} from 'react-router-dom';
@@ -6,13 +6,20 @@ import {Link, useHistory} from 'react-router-dom';
 const WorkDayIndex = () => {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [workDays, setWorkDays] = useState([]);
   const currentuser = useSelector(state => state.CurrentUserReducer);
-  const workDays = useSelector(state => state.WorkDayReducer);
+  const wd = useSelector(state => state.WorkDayReducer);
 
   useEffect(() => {
     console.log("CurrentUser", currentuser)
     dispatch(GetWorkDays(currentuser.user.id))
   }, [])
+
+  useEffect(() => {
+    if(Array.isArray(wd) && wd.length != 0){
+      setWorkDays(wd)
+    }
+  },[wd])
 
 
   const displayDate = (dateString) => {
@@ -25,6 +32,7 @@ const WorkDayIndex = () => {
   
   return(
     <div className='container_80'>
+      {console.log(workDays)}
       <h1>arbejds Dage</h1>
       <table>
         <thead>
@@ -41,7 +49,7 @@ const WorkDayIndex = () => {
               <tr>
                 <td>{displayDate(wd.start_time)}</td>
                 <td>{displayDate(wd.end_time)}</td>
-                <td></td>
+                <td>{wd.appointments.length}</td>
                 <td>
                   <div>
                     <Link to={`/work_days/show/${wd.id}`}  className='button'>Vis arbejdsdag</Link>
