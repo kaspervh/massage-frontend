@@ -27,3 +27,16 @@ export const bookAppointment = (appointment) => {
 		})
 	}
 }
+
+export const DeleteAppointment = (id) => {
+	return async dispatch => {
+		const deleteAppointment = await fetch(`http://localhost:3000/appointments/${id}`, {
+			method: "DELETE",
+		})
+
+		dispatch({
+			type: 'DeleteAppointments',
+			payload: id
+		})
+	}
+}

@@ -4,6 +4,8 @@ const AppointmentReducer = (state = [], action) => {
       return state = action.payload
     case 'BookAppointment':
       return state = action.payload
+    case 'DeleteAppointment':
+      return state
     default:
       return state
   }
