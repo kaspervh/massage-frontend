@@ -17,7 +17,8 @@ const Home = () => {
         <div className="welcome-header">
           <h1>Velkommen til Skørpping velvære massage</h1>
           <div className="welcome-buttons">
-            <Link to='/services' className='button-purple'>Ydelser</Link>
+            <Link to='/services' className='button-purple' style={{marginLeft: '55px'}}>Behandlinger</Link>
+            <Link to='/appointments' className='button' style={{marginLeft: '10px'}}>Bestil tid</Link>
           </div>
         </div>
       </div>
@@ -35,24 +36,28 @@ const Home = () => {
           </p>
 
           <div className="welcome-buttons">
-            <Link to='/services' className='button'>Ydelser</Link>
-            <Link to='/' className='button'>Bestil tid</Link>
+            <Link to='/services' className='button-purple'>Behandlinger</Link>
+            <Link to='/appointments' className='button'>Bestil tid</Link>
           </div>
         </div>
       </div>
 
       <div className="testimonials">
         <div className="testimonial">
-          <p>Olga er både professionel og rar at blive masseret af </p>
-          <strong>- kasper</strong>
+          <p>Meget behagelig og professionel massage udført af dygtig massør. 👌 Kommer gerne igen 😊 </p>
+          <strong>- Lotte L</strong>
         </div>
         <div className="testimonial">
-          <p>Den bedste massage jeg har fået i år helt uden afslutning</p>
-          <strong>- Søren</strong>
+          <p>Fantastisk god (og behagelig) massage.
+
+              og samtid rigtig sød og venlig massør 😊
+
+              kan varmt anbefales 😉</p>
+          <strong>- Britt O</strong>
         </div>
         <div className="testimonial">
-          <p>Det var super at få læst mine runer hos Olga, fremtiden ser lys ud</p>
-          <strong>- Birte</strong>
+          <p>Kan varmt anbefales - har døjet med store smerter i ryggen - som er går ned i benet - massage hos Skørping Velvære Massages har hjulpet mig 😃😃😃</p>
+          <strong>- Finn P</strong>
         </div>
       </div>      
       
