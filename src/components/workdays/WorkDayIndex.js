@@ -52,8 +52,8 @@ const WorkDayIndex = () => {
                 <td>{wd.appointments.length}</td>
                 <td>
                   <div>
-                    <Link to={`/work_days/show/${wd.id}`}  className='button'>Vis arbejdsdag</Link>
-                    <Link to={`/work_day/edit/${wd.id}`} className='button-purple'>Rediger tid</Link>
+                    <Link to={`/work_days/show/${wd.id}`}  className='button'>Vis</Link>
+                    <Link to={`/work_day/edit/${wd.id}`} className='button-purple'>Rediger</Link>
                   </div>
                 </td>
               </tr>

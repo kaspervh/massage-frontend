@@ -32,7 +32,7 @@ const ProductsIndex = () => {
                 <td>{product.name}</td>
                 <td>{product.duration}</td>
                 <td>{product.description}</td>
-                <td><img src={product.promo_image}/></td>
+                <td><img src={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
                 <td>
                   <div>
                     <Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger produkt</Link>

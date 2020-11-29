@@ -13,21 +13,28 @@
 }
 
 .navbar-left{
-  width: 100vw;
+  width: 50vw;
   height: 100px;
   display: flex;
   align-items: center;
 }
 
 .navbar-left img{
-  width: 300px
+  width: 300px;
+  margin-left: 150px;
 }
 
 .navbar-right{
-  width: 50%;
+  width:50vw;
   height: 100px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end ;
+}
+
+.navigation-container{
+  display: flex;
+  height: 99px;
+  margin-right: 100px;
 }
 
 .nav-link{
@@ -105,10 +112,11 @@
 }
 
 .about-image{
-  width: 50%;
   background-image: url('./images/purple_mood_image.jpg');
   background-size: contain;
-
+  background-repeat: no-repeat;
+  min-height: 600px;
+  min-width: 800px;
 }
 
 .about-text{
@@ -273,7 +281,7 @@ td{
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .navbar{
     width: 100vw;
     height:100px;
@@ -285,13 +293,14 @@ td{
   .navbar-left{
     width: 100vw;
     height: 50px;
-    display: flex;
-    align-items: center;
+    justify-content: center;
   }
   
   .navbar-right{
     width: 100vw;
     height: 50px;
+    justify-content: center;
+    margin: 0px;
   }
 
   .navbar-right:first-child{
@@ -329,7 +338,17 @@ td{
     margin-top: 30px;
     font-size: 15px;
   }
-  
+
+  .testimonials{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service_image{display: none;}
+}
+
+@media only screen and (max-width: 1250px) {
+
   .about{
     height: 60vh;
     width: 100%;

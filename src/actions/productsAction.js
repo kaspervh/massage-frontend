@@ -1,6 +1,6 @@
 export const GetProductsAction = (userId) =>{
   return async dispatch => {
-    const products = await fetch('http://localhost:3000/products',{
+    const products = await fetch('https://massage-backend.herokuapp.com/products',{
       method: 'GET',
       headers: {"Content-Type": "Application/json"}
     })
@@ -14,7 +14,7 @@ export const GetProductsAction = (userId) =>{
 
 export const GetProductAction = (id) =>{
   return async dispatch => {
-    const products = await fetch(`http://localhost:3000/products/${id}`,{
+    const products = await fetch(`https://massage-backend.herokuapp.com/products/${id}`,{
       method: 'GET',
       headers: {"Content-Type": "Application/json"}
     })
@@ -29,7 +29,7 @@ export const GetProductAction = (id) =>{
 export const NewProductAction = (user_id, name, duration, description, promo_image) => {
   console.log(user_id);
   return async dispatch => {
-    const newProduct = await fetch('http://localhost:3000/products', {
+    const newProduct = await fetch('https://massage-backend.herokuapp.com/products', {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({user_id, name, duration, description, promo_image})
@@ -44,7 +44,7 @@ export const NewProductAction = (user_id, name, duration, description, promo_ima
 
 export const UpdateProductAction = (id, name, duration, description, promo_image) => {
   return async dispatch =>{
-    const product = await fetch(`http://localhost:3000/products/${id}`, {
+    const product = await fetch(`https://massage-backend.herokuapp.com/products/${id}`, {
       method: 'PATCH',
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({name, duration, description, promo_image})
