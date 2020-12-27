@@ -15,8 +15,8 @@ const ProductsIndex = () => {
   }, [])
   
   useEffect(() => {
-    if(currentUser.length === 0){goHome}
-    if(currentUser.status !== 200){goHome}
+    if(currentUser.length === 0){goHome()}
+    if(currentUser.status !== 200){goHome()}
   },[currentUser])
 
   const goHome = () => history.push('/');

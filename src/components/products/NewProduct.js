@@ -14,9 +14,12 @@ const NewProduct = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() => {
+    if(currentUser.length === 0){goHome()}
+    if(currentUser.status !== 200){goHome()}
     setUserId(currentUser.user.id);
-    console.log(currentUser)
   },[currentUser])
+
+  const goHome = () => history.push('/')
 
   const setImage = (file) => {
     console.log(file)

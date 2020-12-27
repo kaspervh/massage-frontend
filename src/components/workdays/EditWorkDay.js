@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {UpdateWorkDayAction, GetWorkDay} from '../../actions/WorkDayAction';
 
 
 const EditWorkDay = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const workDayId = useParams();
   const [date, setDate] = useState();
@@ -34,8 +35,11 @@ const EditWorkDay = () => {
   }, [workDay])
 
   useEffect(() => {
-    console.log(date)
-  },[date])
+    if(currentUser.length === 0){goHome()}
+    if(currentUser.status !== 200){goHome()}
+  },[currentUser])
+
+  const goHome = () => history.push('/')
 
   const updateWorkDay = () => {
     const startTime = new Date(`${date}T${startHour}:${startMinute}`).toUTCString();

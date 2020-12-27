@@ -7,12 +7,11 @@ const WorkDayIndex = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const [workDays, setWorkDays] = useState([]);
-  const currentuser = useSelector(state => state.CurrentUserReducer);
+  const currentUser = useSelector(state => state.CurrentUserReducer);
   const wd = useSelector(state => state.WorkDayReducer);
 
   useEffect(() => {
-    console.log("CurrentUser", currentuser)
-    dispatch(GetWorkDays(currentuser.user.id))
+    dispatch(GetWorkDays(currentUser.user.id))
   }, [])
 
   useEffect(() => {
@@ -21,6 +20,12 @@ const WorkDayIndex = () => {
     }
   },[wd])
 
+  useEffect(() => {
+    if(currentUser.length === 0){goHome()}
+    if(currentUser.status !== 200){goHome()}
+  },[currentUser])
+
+  const goHome = () => history.push('/');
 
   const displayDate = (dateString) => {
     const date = new Date(dateString)

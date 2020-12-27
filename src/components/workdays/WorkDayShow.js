@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {useParams} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {GetWorkDay} from '../../actions/WorkDayAction';
 import {DeleteAppointment} from '../../actions/AppointmentAction';
 
 
 const WorkDayShow = () => {
+  const history = useHistory();
   const workDayId = useParams();
   const dispatch = useDispatch();
   const workDay = useSelector(state => state.WorkDayReducer);
@@ -13,6 +14,7 @@ const WorkDayShow = () => {
   const [date, setDate] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
+  const currentUser = useSelector(state => state.CurrentUserReducer)
 
   useEffect(() => {
     dispatch(GetWorkDay(workDayId.id))
@@ -30,8 +32,8 @@ const WorkDayShow = () => {
   }, [workDay])
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome}
-    if(currentUser.status !== 200){goHome}
+    if(currentUser.length === 0){goHome()}
+    if(currentUser.status !== 200){goHome()}
   },[currentUser])
 
   const goHome = () => history.push('/');
