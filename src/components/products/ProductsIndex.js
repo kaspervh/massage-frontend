@@ -1,16 +1,25 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {GetProductsAction} from '../../actions/productsAction';
 
 
 const ProductsIndex = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const products = useSelector(state => state.ProductsReducer)
+  const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() =>{
     dispatch(GetProductsAction());
   }, [])
+  
+  useEffect(() => {
+    if(currentUser.length === 0){goHome}
+    if(currentUser.status !== 200){goHome}
+  },[currentUser])
+
+  const goHome = () => history.push('/');
 
   return (
     <div className='container_80'>
