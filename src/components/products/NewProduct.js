@@ -15,6 +15,7 @@ const NewProduct = () => {
 
   useEffect(() => {
     setUserId(currentUser.user.id);
+    console.log(currentUser)
   },[currentUser])
 
   const setImage = (file) => {
@@ -42,7 +43,7 @@ const NewProduct = () => {
         <div className='image_preview' >
           {promoPicture.length !== 0 ? <img src={promoPicture} style={{maxWidth: '100px'}}/> : ''}
         </div>
-        <button onClick={saveProduct}>Gem Ydelse</button>
+        <button onClick={e => saveProduct}>Gem Ydelse</button>
       </div>
     </div>
   )

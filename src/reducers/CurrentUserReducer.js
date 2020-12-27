@@ -31,8 +31,14 @@ const destroyCurrentUser = () => {
 const CurrentUserReducer = (state = loadCurrentUser(), action) => {
   switch(action.type){
     case 'Login':
-      saveToLocalStorage(action.payload)
-      return state = action.payload
+      console.log(action.payload)
+      if(action.payload.status === 200){
+        saveToLocalStorage(action.payload)
+        return state = action.payload
+      }else{
+        return state
+      }
+      
     case 'Logout':
       destroyCurrentUser()
       return state = null

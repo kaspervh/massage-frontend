@@ -5,6 +5,7 @@ import Logo from '../../images/Logo.svg';
 
 const Navbar = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
+  console.log(currentUser)
 
   return(
     <div className="navbar">
@@ -17,7 +18,7 @@ const Navbar = () => {
             <Link to='/products' className='nav-link'>Produkter</Link>
             <Link to='/work_days' className='nav-link'>Arbejds dage</Link>
             <Link to='/services' className='nav-link'>Behandlinger</Link>
-            <Link to='/' className='nav-link'>Bestil tid</Link>
+            <Link to='/appointments' className='nav-link'>Bestil tid</Link>
           </div> 
           :
           <div className='navigation-container'>
