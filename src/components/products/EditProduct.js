@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useParams} from 'react-router-dom';
 import {GetProductAction, UpdateProductAction} from '../../actions/productsAction';
+import {useHistory} from 'react-router-dom';
 
 const EditProduct = () => {
+  const history = useHistory();
   const params = useParams();
   const dispatch = useDispatch();
   const [name, setName] = useState();
@@ -11,10 +13,16 @@ const EditProduct = () => {
   const [description, setDescription] = useState();
   const [promoPicture, setPromoPicture] = useState('');
   const product = useSelector(state => state.ProductsReducer)
+  const currentUser = useSelector(state => state.CurrentUserReducer)
 
   useEffect(() => {
     dispatch(GetProductAction(params.id))
   },[])
+
+  useEffect(() => {
+    if(currentUser.length === 0){goHome}
+    if(currentUser.status !== 200){goHome}
+  },[currentUser])
 
   useEffect(() => {
     console.log(product)
@@ -25,6 +33,8 @@ const EditProduct = () => {
       setPromoPicture(product.promo_image)
     }
   }, [product])
+
+  const goHome = () => history.push('/')
 
   const setImage = (file) => {
     console.log(file)

@@ -11,7 +11,7 @@ const Login = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() =>  {
-    if(currentUser.length !== 0){
+    if(currentUser.status === 200){
       history.push('/')
     }
   }, [currentUser])

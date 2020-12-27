@@ -29,6 +29,13 @@ const WorkDayShow = () => {
     }
   }, [workDay])
 
+  useEffect(() => {
+    if(currentUser.length === 0){goHome}
+    if(currentUser.status !== 200){goHome}
+  },[currentUser])
+
+  const goHome = () => history.push('/');
+
   const displayDate = (dateString) => {
     const date = new Date(dateString)
     const days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'trosdag', 'fredag', 'lørdag']
