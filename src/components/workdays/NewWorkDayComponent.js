@@ -14,11 +14,14 @@ const NewWorkDay = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
-  },[currentUser])
+    window.scrollTo(0,0)
+  },[])
 
-  const goHome = () => history.push('/');
+  useEffect(() => {
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
+  },[currentUser, history])
+
 
   const createWorkDay = () => {
     const startTime = new Date(`${date}T${startHour}:${startMinute}`).toUTCString();

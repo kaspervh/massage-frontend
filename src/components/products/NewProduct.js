@@ -14,12 +14,11 @@ const NewProduct = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
+    window.scrollTo(0,0)
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
     setUserId(currentUser.user.id);
-  },[currentUser])
-
-  const goHome = () => history.push('/')
+  },[currentUser, history])
 
   const setImage = (file) => {
     console.log(file)
@@ -44,7 +43,7 @@ const NewProduct = () => {
         <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder='Beskrivelse'/>
         <input type="file" onChange={e => setImage(e.target.files)}/>
         <div className='image_preview' >
-          {promoPicture.length !== 0 ? <img src={promoPicture} style={{maxWidth: '100px'}}/> : ''}
+          {promoPicture.length !== 0 ? <img src={promoPicture} alt={promoPicture} style={{maxWidth: '100px'}}/> : ''}
         </div>
         <button onClick={e => saveProduct}>Gem Ydelse</button>
       </div>

@@ -11,20 +11,21 @@ const WorkDayShow = () => {
   const dispatch = useDispatch();
   const workDay = useSelector(state => state.WorkDayReducer);
   const [appointments, setAppointments] = useState([]);
-  const [date, setDate] = useState();
+  //const [date, setDate] = useState();
   const [startTime, setStartTime] = useState();
   const [endTime, setEndTime] = useState();
   const currentUser = useSelector(state => state.CurrentUserReducer)
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(GetWorkDay(workDayId.id))
-  },[])
+  },[dispatch])
 
   useEffect(() => {
     if(typeof workDay !== 'undefined' && Object.keys(workDay).length !== 0){
       const start = new Date(workDay.start_time);
       const end = new Date(workDay.end_time);
-      setDate(`${start.getDay()}/${start.getMonth()}/${start.getFullYear()}`);
+      //setDate(`${start.getDay()}/${start.getMonth()}/${start.getFullYear()}`);
       setStartTime(`${start.getHours()}:${start.getMinutes()}`);
       setEndTime(`${end.getHours()}:${end.getMinutes()}`);
       setAppointments(workDay.appointments);

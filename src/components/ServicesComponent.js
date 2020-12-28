@@ -8,8 +8,9 @@ const Services = () => {
   const products = useSelector(state => state.ProductsReducer)
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(GetProductsAction())
-  },[])
+  },[dispatch])
 
   return(
     <div className='container'>
@@ -23,12 +24,12 @@ const Services = () => {
               <Link to='/appointments' className='button'>Bestil tid</Link>
             </div>
             <div className="service_image">
-              <img src={product.promo_image}/>
+              <img src={product.promo_image} alt={product.promo_image}/>
             </div>
           </div> :
           <div className='service'>
             <div className="service_image">
-              <img src={product.promo_image}/>
+              <img src={product.promo_image} alt={product.promo_image}/>
             </div>
             <div className="service_text">
               <h1>{product.name}</h1>

@@ -11,10 +11,11 @@ const Login = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() =>  {
+    window.scrollTo(0,0)
     if(currentUser.status === 200){
       history.push('/')
     }
-  }, [currentUser])
+  }, [currentUser, history])
 
 
   const login = () => {

@@ -88,14 +88,16 @@
 .welcome{
   width: 100vw;
   height: 90vh;
-  background-image: url('./images/relaxation.jpg');
+  background-image: url('./images/massage.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 .welcome-header{
   position: absolute;
   color: white;
   z-index: 2;
-  top: 500px;
+  top: 400px;
   left: 70px;
   padding: 50px;
 }
@@ -355,6 +357,7 @@ td{
     font-size: 15px;
     justify-content: center;
     margin-bottom: 70px;
+    margin-top: 50px;
     text-align: center;
   }
   
@@ -371,5 +374,11 @@ td{
     justify-content: center;
     flex-direction: column;
     font-size: 1em;
+  }
+
+  .welcome-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }

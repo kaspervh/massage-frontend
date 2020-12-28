@@ -1,4 +1,4 @@
-import { combineReducers, CombineReducers } from 'redux';
+import {combineReducers} from 'redux';
 import CurrentUserReducer from './CurrentUserReducer';
 import WorkDayReducer from './WorkDayReducer';
 import ProductsReducer from './ProductsReducer';

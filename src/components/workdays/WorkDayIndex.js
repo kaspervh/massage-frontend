@@ -11,21 +11,17 @@ const WorkDayIndex = () => {
   const wd = useSelector(state => state.WorkDayReducer);
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(GetWorkDays(currentUser.user.id))
-  }, [])
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
+  }, [dispatch, currentUser, history])
 
   useEffect(() => {
-    if(Array.isArray(wd) && wd.length != 0){
+    if(Array.isArray(wd) && wd.length !== 0){
       setWorkDays(wd)
     }
   },[wd])
-
-  useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
-  },[currentUser])
-
-  const goHome = () => history.push('/');
 
   const displayDate = (dateString) => {
     const date = new Date(dateString)
