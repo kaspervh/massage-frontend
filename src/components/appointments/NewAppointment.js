@@ -18,7 +18,8 @@ const NewAppointment = () => {
 
   useEffect(()=>{
     dispatch(GetProductsAction())
-  },[])
+    window.scrollTo(0,0)
+  },[dispatch])
 
   useEffect(() =>{
     if(appointments.length !== 0){

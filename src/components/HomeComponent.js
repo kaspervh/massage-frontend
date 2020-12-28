@@ -8,6 +8,7 @@ const Home = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer);
 
   useEffect(() => {
+    window.scrollTo(0,0)
     dispatch(GetProductsAction)
   }, [])
 
@@ -15,9 +16,9 @@ const Home = () => {
     <div className='container'>
       <div className="welcome">
         <div className="welcome-header">
-          <h1>Velkommen til Skørpping velvære massage</h1>
+          <h1>Velkommen til Skørping velvære massage</h1>
           <div className="welcome-buttons">
-            <Link to='/services' className='button-purple' style={{marginLeft: '55px'}}>Behandlinger</Link>
+            <Link to='/services' className='button-purple' style={{marginLeft: '55px'}}>Se Behandlinger</Link>
             <Link to='/appointments' className='button' style={{marginLeft: '10px'}}>Bestil tid</Link>
           </div>
         </div>
@@ -36,7 +37,7 @@ const Home = () => {
           </p>
 
           <div className="welcome-buttons">
-            <Link to='/services' className='button-purple'>Behandlinger</Link>
+            <Link to='/services' className='button-purple'> Se Behandlinger</Link>
             <Link to='/appointments' className='button'>Bestil tid</Link>
           </div>
         </div>

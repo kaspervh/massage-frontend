@@ -17,8 +17,9 @@ const EditWorkDay = () => {
   const workDay = useSelector(state => state.WorkDayReducer);
 
   useEffect(() =>{
+    window.scrollTo(0,0)
     dispatch(GetWorkDay(workDayId.id))
-  },[])
+  },[dispatch])
 
   useEffect(() => {
     

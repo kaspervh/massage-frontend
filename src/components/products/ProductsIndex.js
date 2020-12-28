@@ -12,14 +12,14 @@ const ProductsIndex = () => {
 
   useEffect(() =>{
     dispatch(GetProductsAction());
-  }, [])
+  }, [dispatch])
   
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
-  },[currentUser])
+    window.scrollTo(0,0)
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
+  },[currentUser, history])
 
-  const goHome = () => history.push('/');
 
   return (
     <div className='container_80'>
@@ -41,7 +41,7 @@ const ProductsIndex = () => {
                 <td>{product.name}</td>
                 <td>{product.duration}</td>
                 <td>{product.description}</td>
-                <td><img src={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
+                <td><img src={product.promo_image} alt={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
                 <td>
                   <div>
                     <Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger produkt</Link>
