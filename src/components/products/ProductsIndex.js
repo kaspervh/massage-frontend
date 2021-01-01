@@ -35,12 +35,12 @@ const ProductsIndex = () => {
           </tr>
         </thead>
         <tbody>
-          {products.length !== 0 ? 
+          {products ? 
             products.map(product =>
               <tr>
                 <td>{product.name}</td>
                 <td>{product.duration}</td>
-                <td>{product.description}</td>
+                <td style={{maxWidth: '400px', textAlign: 'center'}}>{product.description}</td>
                 <td><img src={product.promo_image} alt={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
                 <td>
                   <div>

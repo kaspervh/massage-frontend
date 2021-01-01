@@ -66,7 +66,7 @@ const EditProduct = () => {
         <div className='image_preview'>
           {notEmpty(promoPicture) ? <img src={promoPicture}/> : ''}
         </div>
-        <button onClick={saveProduct}>Gem Ydelse</button>
+        <button onClick={e => saveProduct()}>Gem Ydelse</button>
       </div>
     </div>
   )

@@ -22,12 +22,13 @@ const WorkDayShow = () => {
   },[dispatch])
 
   useEffect(() => {
+    //console.log(startTime)
+  },[startTime])
+
+  useEffect(() => {
     if(typeof workDay !== 'undefined' && Object.keys(workDay).length !== 0){
-      const start = new Date(workDay.start_time);
-      const end = new Date(workDay.end_time);
-      //setDate(`${start.getDay()}/${start.getMonth()}/${start.getFullYear()}`);
-      setStartTime(`${start.getHours()}:${start.getMinutes()}`);
-      setEndTime(`${end.getHours()}:${end.getMinutes()}`);
+      setStartTime(`${new Date(workDay.start_time).toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`);
+      setEndTime(`${new Date(workDay.end_time).toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`);
       setAppointments(workDay.appointments);
     }
   }, [workDay])

@@ -121,7 +121,7 @@ const NewWorkDay = () => {
           
         </div>
 
-        <button onClick={createWorkDay}>Opret arbejds dag</button>
+        <button onClick={e => createWorkDay()}>Opret arbejds dag</button>
       </div>
     </div>
   )

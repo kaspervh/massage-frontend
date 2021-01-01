@@ -76,7 +76,7 @@ const NewAppointment = () => {
   const showAppointmentTimes = (from) => {
     const fromTime = new Date(from);
     const toTime = new Date(fromTime.getTime() + currentProduct.duration*6000)
-    return(`fra ${fromTime.getHours()}:${fromTime.getMinutes()} Til ${toTime.getHours()}:${toTime.getMinutes()}`)
+    return(`fra ${fromTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} Til ${toTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`)
   }
 
   return(
