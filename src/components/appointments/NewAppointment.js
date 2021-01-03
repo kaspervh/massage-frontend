@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetProductsAction} from '../../actions/productsAction';
 import {GetAppointmentTimesAction, bookAppointment} from '../../actions/AppointmentAction';
 
 const NewAppointment = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [currentProduct, setCurrentProduct] = useState();
   const [firstName, setFirstName] = useState('');
@@ -52,6 +54,7 @@ const NewAppointment = () => {
     if(validateFields()){
       dispatch(bookAppointment({work_day_id: pa.work_day_id, start_time: new Date(pa.start_time).toUTCString(), end_time: new Date(pa.end_time).toUTCString(), first_name: firstName, last_name: lastName, phone, email}))
       dispatch(GetAppointmentTimesAction(currentProduct.duration))
+      history.push('/thank_you');
     }else{
       setError('Fornavn, efternavn, email og telefon nummer skal udfyldes for at du kan booke en massagetid')
     }
@@ -73,9 +76,10 @@ const NewAppointment = () => {
     return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} ` )
   } 
 
-  const showAppointmentTimes = (from) => {
+  const showAppointmentTimes = (from, to) => {
     const fromTime = new Date(from);
-    const toTime = new Date(fromTime.getTime() + currentProduct.duration*6000)
+    const toTime = new Date(to)
+    console.log(toTime)
     return(`fra ${fromTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} Til ${toTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`)
   }
 
@@ -111,7 +115,7 @@ const NewAppointment = () => {
               {appointmentList.map((possibleApointment, index) => 
                 <div key={index}>
                   <div className='cardButton' onClick={() => requestAppointment(possibleApointment)}>
-                    <p>{showAppointmentTimes(possibleApointment.start_time)}</p>
+                    <p>{showAppointmentTimes(possibleApointment.start_time, possibleApointment.end_time)}</p>
                   </div>
                 </div>
               )}

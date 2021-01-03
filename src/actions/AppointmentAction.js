@@ -1,5 +1,4 @@
 export const GetAppointmentTimesAction = (duration) =>{
-	console.log(duration)
 	return async dispatch => {
 		const appointmentTimes = await fetch('https://massage-backend.herokuapp.com/appointments',{
 			method: "GET",

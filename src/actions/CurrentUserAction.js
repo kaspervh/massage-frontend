@@ -1,5 +1,4 @@
 export const LoginUser = (email, password) =>{
-  console.log('called')
   return async dispatch => {
     const currentUser = await fetch('https://massage-backend.herokuapp.com/login', {
       method: 'POST',

@@ -36,16 +36,15 @@ const EditWorkDay = () => {
   }, [workDay])
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
   },[currentUser])
-
-  const goHome = () => history.push('/')
 
   const updateWorkDay = () => {
     const startTime = new Date(`${date}T${startHour}:${startMinute}`).toUTCString();
     const endTime = new Date(`${date}T${endHour}:${endMinute}`).toUTCString();
-    
+    dispatch(UpdateWorkDayAction(currentUser.user.id, startTime, endTime))
+    history.goBack()
   }
 
   return(

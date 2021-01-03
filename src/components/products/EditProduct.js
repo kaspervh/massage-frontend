@@ -26,7 +26,6 @@ const EditProduct = () => {
   },[currentUser])
 
   useEffect(() => {
-    console.log(product)
     if(typeof product === 'object'){
       setName(product.name);
       setDuration(product.duration);
@@ -38,7 +37,6 @@ const EditProduct = () => {
   const goHome = () => history.push('/')
 
   const setImage = (file) => {
-    console.log(file)
     let reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onload = () => {
@@ -46,13 +44,11 @@ const EditProduct = () => {
     }
   }
 
-  const notEmpty = (param) => {
-    console.log(param)
-    return param !== null && typeof param != 'undefined' && param.length !== 0
-  }
+  const notEmpty = (param) => param !== null && typeof param != 'undefined' && param.length !== 0
 
   const saveProduct = () => {
     dispatch(UpdateProductAction(params.id, name, duration, description, promoPicture))
+    history.goBack()
   }
 
   return(

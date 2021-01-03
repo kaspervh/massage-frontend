@@ -27,6 +27,7 @@ const NewWorkDay = () => {
     const startTime = new Date(`${date}T${startHour}:${startMinute}`).toUTCString();
     const endTime = new Date(`${date}T${endHour}:${endMinute}`).toUTCString();
     dispatch(NewWorkDayAction(currentUser.user.id, startTime, endTime));
+    history.goBack();
   }
 
   return(

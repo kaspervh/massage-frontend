@@ -21,7 +21,6 @@ const NewProduct = () => {
   },[currentUser, history])
 
   const setImage = (file) => {
-    console.log(file)
     let reader = new FileReader();
     reader.readAsDataURL(file[0]);
     reader.onload = () => {

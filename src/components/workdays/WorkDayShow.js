@@ -34,23 +34,22 @@ const WorkDayShow = () => {
   }, [workDay])
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
   },[currentUser])
-
-  const goHome = () => history.push('/');
 
   const displayDate = (dateString) => {
     const date = new Date(dateString)
     const days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'trosdag', 'fredag', 'lørdag']
     const months = ['januar', 'febuar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december']
-    return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.getHours()}:${date.getMinutes()} ` )
+    return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} ` )
   } 
 
   const deleteAppointment = (e,appointment) => {
     if(window.confirm(`er du sikker på at du vil afslutte aftalen for ${appointment.first_name} ${appointment.last_name}`)){
       dispatch(DeleteAppointment(appointment.id))
       dispatch(GetWorkDay(workDayId.id))
+      history.goBack();
     }
   }
 
