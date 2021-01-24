@@ -20,6 +20,10 @@ const ProductsIndex = () => {
     if(currentUser.status !== 200){history.push('/')}
   },[currentUser, history])
 
+  useEffect(() => {
+    console.log(products)
+  },[products])
+  
 
   return (
     <div className='container_80'>
@@ -35,22 +39,15 @@ const ProductsIndex = () => {
           </tr>
         </thead>
         <tbody>
-          {products.length !== 0 ? 
-            products.map(product =>
-              <tr>
-                <td>{product.name}</td>
-                <td>{product.duration}</td>
-                <td>{product.description}</td>
-                <td><img src={product.promo_image} alt={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
-                <td>
-                  <div>
-                    <Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger produkt</Link>
-                  </div>
-                </td>
-              </tr>
-            ) :
-            <tr></tr>
-          }
+          {products.length !== 0 ? products.map(product =>
+          <tr key={product.name}>
+            <td>{product.name}</td>
+            <td>{product.duration}</td>
+            <td style={{maxWidth: '400px', textAlign: 'center'}}>{product.description}</td>
+            <td><img src={product.promo_image} alt={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
+            <td><div><Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger</Link></div></td>
+          </tr>
+          ) : <tr></tr>}
         </tbody>
       </table>
 

@@ -27,7 +27,6 @@ export const GetProductAction = (id) =>{
 }
 
 export const NewProductAction = (user_id, name, duration, description, promo_image) => {
-  console.log(user_id);
   return async dispatch => {
     const newProduct = await fetch('https://massage-backend.herokuapp.com/products', {
       method: "POST",

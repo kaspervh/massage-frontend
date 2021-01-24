@@ -22,34 +22,34 @@ const WorkDayShow = () => {
   },[dispatch])
 
   useEffect(() => {
+    //console.log(startTime)
+  },[startTime])
+
+  useEffect(() => {
     if(typeof workDay !== 'undefined' && Object.keys(workDay).length !== 0){
-      const start = new Date(workDay.start_time);
-      const end = new Date(workDay.end_time);
-      //setDate(`${start.getDay()}/${start.getMonth()}/${start.getFullYear()}`);
-      setStartTime(`${start.getHours()}:${start.getMinutes()}`);
-      setEndTime(`${end.getHours()}:${end.getMinutes()}`);
+      setStartTime(`${new Date(workDay.start_time).toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`);
+      setEndTime(`${new Date(workDay.end_time).toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`);
       setAppointments(workDay.appointments);
     }
   }, [workDay])
 
   useEffect(() => {
-    if(currentUser.length === 0){goHome()}
-    if(currentUser.status !== 200){goHome()}
+    if(currentUser.length === 0){history.push('/')}
+    if(currentUser.status !== 200){history.push('/')}
   },[currentUser])
-
-  const goHome = () => history.push('/');
 
   const displayDate = (dateString) => {
     const date = new Date(dateString)
     const days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'trosdag', 'fredag', 'lørdag']
     const months = ['januar', 'febuar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december']
-    return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.getHours()}:${date.getMinutes()} ` )
+    return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} ` )
   } 
 
   const deleteAppointment = (e,appointment) => {
     if(window.confirm(`er du sikker på at du vil afslutte aftalen for ${appointment.first_name} ${appointment.last_name}`)){
       dispatch(DeleteAppointment(appointment.id))
       dispatch(GetWorkDay(workDayId.id))
+      history.goBack();
     }
   }
 
