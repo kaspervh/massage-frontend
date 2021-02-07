@@ -33,8 +33,7 @@ const WorkDayIndex = () => {
   
   return(
     <div className='container_80'>
-      {console.log(workDays)}
-      <h1>arbejds Dage</h1>
+      <h1>Arbejdsdage</h1>
       <table>
         <thead>
           <tr>
