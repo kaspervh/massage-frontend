@@ -16,7 +16,7 @@ const Home = () => {
     <div className='container'>
       <div className="welcome">
         <div className="welcome-header">
-          <h1>Velkommen til Skørping velvære massage</h1>
+          <h1>Velkommen til Skørping Velvære Massage</h1>
           <div className="welcome-buttons">
             <Link to='/services' className='button-purple' style={{marginLeft: '55px'}}>Se Behandlinger</Link>
             <Link to='/appointments' className='button' style={{marginLeft: '10px'}}>Bestil tid</Link>
@@ -30,10 +30,10 @@ const Home = () => {
         <div className="about-text">
           <h1>Om Skørping velvære massage</h1>
           <p>
-            Jeg er en certificeret massør og specialisere mig i afslappende massage og sportsmassage. <br/>
-            Grunden til at jeg ikke har en adresse på min side er, fordi jeg fornyligt har startet min praksis og pt. <br/>
-            laver massage i et privat hus i Askildrup, tæt på Skørping. Adressen efter aftale. <br/>
-            Jeg tilpasser massagen efter kundens behov. <br/>
+          Jeg hedder Olga og jeg er en certificeret massør. Jeg specialisere mig i afslappende massage og sportsmassage. <br/> 
+          Jeg laver pt. massage i et privat hus i Askildrup, tæt på Skørping. Jeg sender addressen når en tid er booket. <br/>
+          Jeg tilpasser massagen efter kundens behov. <br/>
+          Hvis du har spørgsmål, ring eller send en sms til mig på tlf. 91 85 64 19 <br/>
           </p>
 
           <div className="welcome-buttons">
@@ -42,26 +42,27 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div className="testimonial-container">
+        <h3>Det siger mine kunder</h3>
+        <div className="testimonials">
+          <div className="testimonial">
+            <p>Meget behagelig og professionel massage udført af dygtig massør. 👌 Kommer gerne igen 😊 </p>
+            <strong>- Lotte L</strong>
+          </div>
+          <div className="testimonial">
+            <p>Fantastisk god (og behagelig) massage.
 
-      <div className="testimonials">
-        <div className="testimonial">
-          <p>Meget behagelig og professionel massage udført af dygtig massør. 👌 Kommer gerne igen 😊 </p>
-          <strong>- Lotte L</strong>
-        </div>
-        <div className="testimonial">
-          <p>Fantastisk god (og behagelig) massage.
+                og samtid rigtig sød og venlig massør 😊
 
-              og samtid rigtig sød og venlig massør 😊
-
-              kan varmt anbefales 😉</p>
-          <strong>- Britt O</strong>
-        </div>
-        <div className="testimonial">
-          <p>Kan varmt anbefales - har døjet med store smerter i ryggen - som er går ned i benet - massage hos Skørping Velvære Massages har hjulpet mig 😃😃😃</p>
-          <strong>- Finn P</strong>
-        </div>
-      </div>      
-      
+                kan varmt anbefales 😉</p>
+            <strong>- Britt O</strong>
+          </div>
+          <div className="testimonial">
+            <p>Kan varmt anbefales - har døjet med store smerter i ryggen - som er går ned i benet - massage hos Skørping Velvære Massages har hjulpet mig 😃😃😃</p>
+            <strong>- Finn P</strong>
+          </div>
+        </div>      
+      </div>
     </div>
   
   );
