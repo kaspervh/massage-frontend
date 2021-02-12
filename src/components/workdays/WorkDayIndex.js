@@ -25,7 +25,7 @@ const WorkDayIndex = () => {
 
   const displayDate = (dateString) => {
     const date = new Date(dateString)
-    const days = ['søndag', 'mandag', 'tirsdag', 'onsdag', 'trosdag', 'fredag', 'lørdag']
+    const days = ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag']
     const months = ['januar', 'febuar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december']
     return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}` )
 

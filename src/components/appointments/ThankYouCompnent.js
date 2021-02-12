@@ -1,15 +1,8 @@
-import React, {useEffect} from 'react';
-import {useHistory, Link} from 'react-router-dom';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 const ThankYouComponent = () =>{
-  const history = useHistory();
-
-  useEffect(() => {
-    setTimeout(() => {
-      history.push('/');
-    }, 10000)
-  },[])
 
   return(
     <div className='container_80'>

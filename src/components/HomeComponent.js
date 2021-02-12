@@ -29,15 +29,17 @@ const Home = () => {
 
         <div className="about-text">
           <h1>Om Skørping velvære massage</h1>
-          <p>
-          Jeg hedder Olga og jeg er en certificeret massør. Jeg specialisere mig i afslappende massage og sportsmassage. <br/> 
-          Jeg laver pt. massage i et privat hus i Askildrup, tæt på Skørping. Jeg sender addressen når en tid er booket. <br/>
-          Jeg tilpasser massagen efter kundens behov. <br/>
-          Hvis du har spørgsmål, ring eller send en sms til mig på tlf. 91 85 64 19 <br/>
-          </p>
+          <p>Jeg hedder Olga og jeg er en certificeret massør. <br/>
+             Jeg specialisere mig i afslappende massage og sportsmassage. <br/>
+             Jeg laver pt. massage i et privat hus i Askildrup, tæt på Skørping. <br/> 
+             Jeg sender addressen pr sms når en tid er booket. <br/>
+             Jeg tilpasser massagen efter kundens behov. <br/>
+             Hvis du har spørgsmål, ring eller send en sms til mig på<br/>
+             tlf. 91 85 64 19</p> 
+          
 
           <div className="welcome-buttons">
-            <Link to='/services' className='button-purple'> Se Behandlinger</Link>
+            <Link to='/services' className='button-purple'> Se behandlinger</Link>
             <Link to='/appointments' className='button'>Bestil tid</Link>
           </div>
         </div>

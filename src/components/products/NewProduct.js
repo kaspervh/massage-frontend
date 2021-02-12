@@ -39,12 +39,12 @@ const NewProduct = () => {
         <h1>Ny ydelse</h1>
         <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder='Ydelses navn'/>
         <input type="number" value={duration} onChange={e => setDuration(e.target.value)} placeholder='Varighed i minutter'/>
-        <input type="text" value={description} onChange={e => setDescription(e.target.value)} placeholder='Beskrivelse'/>
+        <textarea value={description} onChange={e => setDescription(e.target.value)} placeholder='Beskrivelse'/>
         <input type="file" onChange={e => setImage(e.target.files)}/>
         <div className='image_preview' >
           {promoPicture.length !== 0 ? <img src={promoPicture} alt={promoPicture} style={{maxWidth: '100px'}}/> : ''}
         </div>
-        <button onClick={e => saveProduct()}>Gem Ydelse</button>
+        <button className='button-purple' onClick={e => saveProduct()}>Gem ydelse</button>
       </div>
     </div>
   )

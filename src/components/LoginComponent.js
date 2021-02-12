@@ -25,12 +25,12 @@ const Login = () => {
   return(
     <div className='container'>
       <div className="form_box">
-        <h1>login</h1>
+        <h1>Log ind</h1>
         <input type="text" value={email} onChange={e => setEmail(e.target.value)} placeholder='Email'/>
         
         <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder='Password'/>
 
-        <button onClick={login}>Login</button>
+        <button onClick={login} className='button-purple'>Log ind</button>
       </div>
       
     </div>

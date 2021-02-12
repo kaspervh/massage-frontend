@@ -33,13 +33,13 @@ const NewWorkDay = () => {
   return(
     <div className='container'>
       <div className="form_box">
-        <h1>Ny arbejds dag</h1>
+        <h1>Ny arbejdsdag</h1>
         <div>
           <lable>Dato</lable>
           <br/>
           <input type="date" value={date} onChange={e => setDate(e.target.value)}/>
         </div>
-        
+        <br/>
         <div>
           <lable>Start</lable>
           <br/>
@@ -79,7 +79,7 @@ const NewWorkDay = () => {
             <option value="45">45</option>
           </select>
         </div>
-
+        <br/>
         <div>
           <lable>Slut</lable>
           <br/>
@@ -121,8 +121,8 @@ const NewWorkDay = () => {
           <br/>
           
         </div>
-
-        <button onClick={e => createWorkDay()}>Opret arbejds dag</button>
+        <br/>
+        <button className='button-purple' onClick={e => createWorkDay()}>Opret arbejds dag</button>
       </div>
     </div>
   )

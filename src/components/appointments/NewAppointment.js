@@ -80,7 +80,7 @@ const NewAppointment = () => {
   const showAppointmentTimes = (from, to) => {
     const fromTime = new Date(from);
     const toTime = new Date(to)
-    return(`fra ${fromTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} Til ${toTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`)
+    return(`Fra ${fromTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})} Til ${toTime.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}`)
   }
 
   const selectPossibleAppointment = (element, possibleApointment) => {
@@ -111,24 +111,25 @@ const NewAppointment = () => {
         {appointments != null && loading === false ? 
           currentProduct != null ?
             <div>
-              <h5 style={{marginLeft: '10px'}}>trin 2 Vælg ledig tid</h5>
+              <h5 style={{marginLeft: '10px'}}>Trin 2 Vælg ledig tid</h5>
               <section>
             
                 <div className='workdays-container' >
                   {possibleApointments.map((appointmentList, index)=> 
-                    <div key={index} className='card'>
-                      <div className='cardHeader'>
-                        {displayDate(appointmentList[0].start_time)}
-                      </div>
-                      {appointmentList.map((possibleApointment, index) => 
-                        <div key={index}>
-                          <div className='cardButton' onClick={element => selectPossibleAppointment(element, possibleApointment)}>
-                            <p>{showAppointmentTimes(possibleApointment.start_time, possibleApointment.end_time)}</p>
-                          </div>
+                    appointmentList.length != 0 ? 
+                      <div key={index} className='card'>
+                        <div className='cardHeader'>
+                          {displayDate(appointmentList[0].start_time)}
                         </div>
-                      )}
-                    </div>
-
+                        {appointmentList.map((possibleApointment, index) => 
+                          <div key={index}>
+                            <div className='cardButton' onClick={element => selectPossibleAppointment(element, possibleApointment)}>
+                              <p>{showAppointmentTimes(possibleApointment.start_time, possibleApointment.end_time)}</p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    : ''
                   )}
                 
                 </div>
