@@ -192,6 +192,13 @@ section{
   margin-left: 50px;
   margin-right: 50px;
 }
+.service_text h3{
+  margin: 0px;
+}
+
+.service_text h1{
+  margin-bottom: 0px;
+}
 
 .service_image{
   height: 100%; 
