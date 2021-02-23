@@ -1,6 +1,8 @@
+//const url = "http://localhost:3000"; // https://massage-backend.herokuapp.com
+
 export const GetAppointmentTimesAction = (duration) =>{
 	return async dispatch => {
-		const appointmentTimes = await fetch('https://massage-backend.herokuapp.com/appointments',{
+		const appointmentTimes = await fetch("https://massage-backend.herokuapp.com" +'/appointments',{
 			method: "GET",
 			headers: {"Content-Type": "application/json", "duration": duration.toString()}
 		})
@@ -14,7 +16,7 @@ export const GetAppointmentTimesAction = (duration) =>{
 
 export const bookAppointment = (appointment) => {
 	return async dispatch => {
-		const bookAppointment = await fetch('https://massage-backend.herokuapp.com/appointments', {
+		const bookAppointment = await fetch("https://massage-backend.herokuapp.com" + '/appointments', {
 			method: "POST",
 			headers: {"Content-Type": "application/json"},
 			body: JSON.stringify(appointment)
@@ -29,7 +31,7 @@ export const bookAppointment = (appointment) => {
 
 export const DeleteAppointment = (id) => {
 	return async dispatch => {
-		const deleteAppointment = await fetch(`https://massage-backend.herokuapp.com/appointments/${id}`, {
+		const deleteAppointment = await fetch("https://massage-backend.herokuapp.com" + `/appointments/${id}`, {
 			method: "DELETE",
 		})
 

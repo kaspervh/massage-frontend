@@ -65,6 +65,7 @@ const WorkDayShow = () => {
             <th>Email</th>
             <th>fra</th>
             <th>til</th>
+            <th>Bestilt massage</th>
             <th>Optioner</th>
           </tr>
         </thead>
@@ -76,7 +77,8 @@ const WorkDayShow = () => {
               <td>{ap.email}</td>
               <td>{displayDate(ap.start_time)}</td>
               <td>{displayDate(ap.end_time)}</td>
-              <td><button className='button-purple' onClick={e => deleteAppointment(e, ap)}>Slet Blestilt Tid</button></td>
+              <td>{ap.service}</td>
+              <td><button className='button-purple' onClick={e => deleteAppointment(e, ap)}>Slet Tid</button></td>
             </tr>
           ):''}
           
