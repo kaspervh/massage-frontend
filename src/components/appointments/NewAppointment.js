@@ -53,7 +53,7 @@ const NewAppointment = () => {
 
   const requestAppointment = () =>{
     if(validateFields()){
-      dispatch(bookAppointment({work_day_id: pickedAppointment.work_day_id, start_time: new Date(pickedAppointment.start_time).toUTCString(), end_time: new Date(pickedAppointment.end_time).toUTCString(), first_name: firstName, last_name: lastName, phone, email}))
+      dispatch(bookAppointment({work_day_id: pickedAppointment.work_day_id, start_time: new Date(pickedAppointment.start_time).toUTCString(), end_time: new Date(pickedAppointment.end_time).toUTCString(), first_name: firstName, last_name: lastName, phone: phone, email: email, service: `${currentProduct.name} ${currentProduct.duration} minutter`}))
       dispatch(GetAppointmentTimesAction(currentProduct.duration))
       history.push('/thank_you');
     }else{
@@ -102,7 +102,7 @@ const NewAppointment = () => {
         <select onChange={e => getAvailableTimes(e.target.value)}>
           <option value="">Vælg Massage</option>
           
-          {products.map((product, index)=> <option value={index} key={product.name}>{`${product.name} ${product.duration} minutter`}</option>)}
+          {products.map((product, index)=> <option value={index} key={product.name} >{`${product.name} ${product.duration} minutter`}</option>)}
         </select>
 
       </section>

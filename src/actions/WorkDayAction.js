@@ -1,6 +1,8 @@
+//const url = "http://localhost:3000"; // https://massage-backend.herokuapp.com
+
 export const GetWorkDays = (userId) => {
   return async dispatch => {
-    const workDays = await fetch(`https://massage-backend.herokuapp.com/work_days/?userId=${userId}`, {
+    const workDays = await fetch("https://massage-backend.herokuapp.com" + `/work_days/?userId=${userId}`, {
       method: "GET",
       headers: {'Content-Type': 'application/json'},
     })
@@ -14,7 +16,7 @@ export const GetWorkDays = (userId) => {
 
 export const GetWorkDay = (workDayId) => {
   return async dispatch =>{
-    const workDay = await fetch(`https://massage-backend.herokuapp.com/work_days/${workDayId}`,{
+    const workDay = await fetch("https://massage-backend.herokuapp.com" +`/work_days/${workDayId}`,{
       method: 'GET',
       headers: {"content-Type": "Application/json"}
     })
@@ -28,7 +30,7 @@ export const GetWorkDay = (workDayId) => {
 
 export const NewWorkDayAction = (userId, startTime, endTime) => {
   return async dispatch => {
-    const WorkDay = await fetch('https://massage-backend.herokuapp.com/work_days', {
+    const WorkDay = await fetch("https://massage-backend.herokuapp.com" + '/work_days', {
       method: 'POST',
       headers: {"Content-Type": "Application/json"},
       body: JSON.stringify({userId, startTime, endTime})
@@ -43,7 +45,7 @@ export const NewWorkDayAction = (userId, startTime, endTime) => {
 
 export const UpdateWorkDayAction = (id, start_time, end_time) => {
   return async dispatch => {
-    const WorkDay = await fetch('https://massage-backend.herokuapp.com/work_day',{
+    const WorkDay = await fetch("https://massage-backend.herokuapp.com"+ '/work_day',{
       method: 'PATCH',
       headers: {"Content-Type": "Application/json"},
       body: JSON.stringify({id, start_time, end_time})
