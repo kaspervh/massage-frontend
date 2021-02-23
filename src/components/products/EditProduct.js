@@ -16,11 +16,11 @@ const EditProduct = () => {
   const currentUser = useSelector(state => state.CurrentUserReducer)
 
   useEffect(() => {
-    window.scrollTo(0,0)
     dispatch(GetProductAction(params.id))
   },[dispatch])
 
   useEffect(() => {
+    window.scrollTo(0,0)
     if(currentUser.length === 0){goHome()}
     if(currentUser.status !== 200){goHome()}
   },[currentUser])
