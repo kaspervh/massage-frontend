@@ -12,6 +12,10 @@ const Services = () => {
     dispatch(GetProductsAction())
   },[dispatch])
 
+  useEffect(()=>{
+    console.log(products)
+  }, [products])
+
   return(
     <div className='container'>
       {products.length !== 0 ? 
@@ -20,6 +24,7 @@ const Services = () => {
           <div className='service'>
             <div className="service_text">
               <h1>{product.name}</h1>
+              <h3>varighed: {product.duration} minutter</h3>
               <p>{product.description}</p>
               <Link to='/appointments' className='button'>Bestil tid</Link>
             </div>
@@ -33,6 +38,7 @@ const Services = () => {
             </div>
             <div className="service_text">
               <h1>{product.name}</h1>
+              <h3>varighed: {product.duration} minutter</h3>
               <p>{product.description}</p>
               <Link to='/appointments' className='button'>Bestil tid</Link>
             </div>
