@@ -57,3 +57,15 @@ export const UpdateWorkDayAction = (id, start_time, end_time) => {
     })
   }
 }
+
+export const DeleteWorkDay = (workDayId) =>{
+  return async dispatch => {
+    const workDay = await fetch('https://massage-backend.herokuapp.com' + `/work_days/${workDayId}`, {
+      method: 'DELETE'
+    })
+
+    dispatch({
+      type: 'DeleteWorkDay',
+    })
+  }
+}
