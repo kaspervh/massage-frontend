@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {GetWorkDays} from '../../actions/WorkDayAction';
+import {GetWorkDays, DeleteWorkDay} from '../../actions/WorkDayAction';
 import {Link, useHistory} from 'react-router-dom';
 
 const WorkDayIndex = () => {
@@ -30,6 +30,15 @@ const WorkDayIndex = () => {
     return(`${days[date.getDay()]} d. ${date.getDate()} ${months[date.getMonth()]} klokken ${date.toLocaleTimeString([], {hour12: false, hour: '2-digit', minute:'2-digit'})}` )
 
   } 
+
+  const deleteWorkday = (index) =>{
+    if(window.confirm('er du sikker på at du vil slette arbejdsdagen? alle aftaler der er oprettet på dagen vil også blive slettet')){
+      let newWorkDays = [...workDays]
+      newWorkDays.splice(index, 1)
+      dispatch(DeleteWorkDay(workDays[index].id))
+      setWorkDays(newWorkDays)
+    }    
+  }
   
   return(
     <div className='container_80'>
@@ -45,15 +54,16 @@ const WorkDayIndex = () => {
         </thead>
         <tbody>
           {workDays.length !== 0 ? 
-            workDays.map(wd =>
-              <tr>
+            workDays.map((wd, index) =>
+              <tr key={index}>
                 <td>{displayDate(wd.start_time)}</td>
                 <td>{displayDate(wd.end_time)}</td>
                 <td>{wd.appointments.length}</td>
                 <td>
-                  <div>
+                  <div style={{display: 'flex'}}>
                     <Link to={`/work_days/show/${wd.id}`}  className='button'>Vis</Link>
                     <Link to={`/work_day/edit/${wd.id}`} className='button-purple'>Rediger</Link>
+                    <div className="button" style={{backgroundColor: 'red'}} onClick={e => deleteWorkday(index)}>Slet</div>
                   </div>
                 </td>
               </tr>

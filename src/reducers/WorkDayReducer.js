@@ -8,6 +8,8 @@ const WorkDayReducer = (state = [], action) => {
       state = action.payload;
     case 'UpdateWorkDay':
       state = action.payload;
+    case 'DeleteWorkday':
+      return state;
     default:
       return state
   }  
