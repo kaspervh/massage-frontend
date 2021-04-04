@@ -8,6 +8,8 @@ const ProductsReducer = (state = [], action) =>{
       return state = action.payload;
     case 'UpdateProduct':
       return state = action.payload;
+    case "MoveProductToTop":
+      return state = action.payload;
     default:
       return state;
   }

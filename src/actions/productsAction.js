@@ -1,5 +1,19 @@
 //const url = "http://localhost:3000"; // https://massage-backend.herokuapp.com
 
+export const MoveProductToTopAction = (product_id) => {
+  return async dispatch => {
+    const products = await fetch("https://massage-backend.herokuapp.com" + `/move_product_to_top?product_id=${product_id}`, {
+      method: "GET",
+      headers: {"Content-Type": "Application/json"}
+    })
+
+    dispatch({
+      type: "MoveProductToTop",
+      payload: await products.json() 
+    })
+  }
+}
+
 export const GetProductsAction = (userId) =>{
   return async dispatch => {
     const products = await fetch("https://massage-backend.herokuapp.com" + '/products',{
