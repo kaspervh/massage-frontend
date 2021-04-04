@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
-import {GetProductsAction} from '../../actions/productsAction';
+import {GetProductsAction, MoveProductToTopAction} from '../../actions/productsAction';
 
 
 const ProductsIndex = () => {
@@ -31,6 +31,10 @@ const ProductsIndex = () => {
     }
   },[products])
 
+  const moveToTop = (product) => {
+    dispatch(MoveProductToTopAction(product.id))
+  } 
+
   return (
     <div className='container_80'>
       <h1>Mine Ydelser</h1>
@@ -52,7 +56,11 @@ const ProductsIndex = () => {
                 <td>{product.duration}</td>
                 <td style={{maxWidth: '400px', textAlign: 'center'}}>{product.description}</td>
                 <td><img src={product.promo_image} alt={product.promo_image} style={{maxWidth: '100px', maxHeight: '100px'}}/></td>
-                <td><div><Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger</Link></div></td>
+                
+                <td>
+                  <Link to={`/products/edit/${product.id}`} className='button-purple'>Rediger</Link>
+                  <button className='button' onClick={e => moveToTop(product)}>Flyt til toppen</button>
+                </td>
               </tr>
           ) : <tr></tr>}
         </tbody>
