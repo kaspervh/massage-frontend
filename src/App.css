@@ -64,7 +64,7 @@ section{
 }
 
 .footer{
-  height:50px;
+  min-height:50px;
   width: 100vw;
   background-color: blueviolet;
   display: flex;
@@ -73,6 +73,8 @@ section{
   color: white;
   position: relative;
   bottom: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 

@@ -15,6 +15,7 @@ import NewProduct from './components/products/NewProduct';
 import EditProduct from './components/products/EditProduct';
 import NewAppointment from './components/appointments/NewAppointment';
 import ThankYouComponent from './components/appointments/ThankYouCompnent';
+import PrivacyPolicyComponent from './components/PrivacyPolicyComponent';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path='/thank_you' exact component={ThankYouComponent} />
 
           <Route path='/services' exact component={Services} />
+          <Route path='/privacy_policy' exact component={PrivacyPolicyComponent}/>
         </Switch>
         <Footer/>
       </div>
