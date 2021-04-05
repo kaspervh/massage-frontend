@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {GetProductsAction} from '../../actions/productsAction';
 import {GetAppointmentTimesAction, bookAppointment} from '../../actions/AppointmentAction';
@@ -16,6 +16,7 @@ const NewAppointment = () => {
   const [possibleApointments , setPossibleApointments] = useState([]);
   const [pickedAppointment, setPickedAppointment] = useState(null);
   const [error, setError] = useState('');
+  const [acceptPrivacyPolicy, setAcceptPrivacyPolicy] = useState(false);
   const products = useSelector(state => state.ProductsReducer);
   const appointments = useSelector(state => state.AppointmentReducer);
 
@@ -92,6 +93,10 @@ const NewAppointment = () => {
     element.target.parentElement.style.backgroundColor = '#C9B9A5';
   }
 
+  const handlePrivacyPolitics = (checkbox) =>{
+    console.log(checkbox)
+  }
+
   return(
     <div className='container'>
       <h1>Bestil tid</h1>
@@ -152,7 +157,12 @@ const NewAppointment = () => {
             <br/>
             <input type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
 
-            <div className="button" onClick={requestAppointment}>Bestil tid</div>
+            <p>For at kunne bestille en tid skal du først acceptere betingelserne for vores privatlivs politik, <br/> du kan læse mere om den her: <Link to="/privacy_policy">Privatlivs politik</Link></p>
+            <label>Jeg acceptere betingelserne</label>
+            <input type="checkbox" onChange={e => acceptPrivacyPolicy === false ? setAcceptPrivacyPolicy(true) : setAcceptPrivacyPolicy(false)}/>
+            
+            {acceptPrivacyPolicy === true ? <div className="button" onClick={requestAppointment}>Bestil tid</div> : ''}
+            
           </section>  
         </div> : ''
       }

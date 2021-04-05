@@ -16,7 +16,7 @@ const Home = () => {
     <div className='container'>
       <div className="welcome">
         <div className="welcome-header">
-          <h1>Velkommen til Skørping Velvære Massage</h1>
+          <h1>Velkommen til Velvære Massage i Skørping</h1>
           <div className="welcome-buttons">
             <Link to='/services' className='button-purple' style={{marginLeft: '55px'}}>Se Behandlinger</Link>
             <Link to='/appointments' className='button' style={{marginLeft: '10px'}}>Bestil tid</Link>
