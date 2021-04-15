@@ -11,7 +11,7 @@ const Footer = () => {
         <br/>
         <br/>
         <strong>Kontakt oplysninger</strong>
-        <p><strong>Tlf:</strong> 30703844</p>
+        <p><strong>Tlf:</strong> 91 85 64 19</p>
       </div>
       
       

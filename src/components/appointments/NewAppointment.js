@@ -93,9 +93,7 @@ const NewAppointment = () => {
     element.target.parentElement.style.backgroundColor = '#C9B9A5';
   }
 
-  const handlePrivacyPolitics = (checkbox) =>{
-    console.log(checkbox)
-  }
+ 
 
   return(
     <div className='container'>
@@ -157,11 +155,9 @@ const NewAppointment = () => {
             <br/>
             <input type='text' placeholder='Email' onChange={e => setEmail(e.target.value)}/>
 
-            <p>For at kunne bestille en tid skal du først acceptere betingelserne for vores privatlivs politik, <br/> du kan læse mere om den her: <Link to="/privacy_policy">Privatlivs politik</Link></p>
-            <label>Jeg acceptere betingelserne</label>
-            <input type="checkbox" onChange={e => acceptPrivacyPolicy === false ? setAcceptPrivacyPolicy(true) : setAcceptPrivacyPolicy(false)}/>
+            <p>dine oplysninger bliver gemt og behandlet i overenstemmelse med vores privatlivs politik <br/> du kan læse mere om den her: <Link to="/privacy_policy">Privatlivs politik</Link></p>
             
-            {acceptPrivacyPolicy === true ? <div className="button" onClick={requestAppointment}>Bestil tid</div> : ''}
+            <div className="button" onClick={requestAppointment}>Bestil tid</div>
             
           </section>  
         </div> : ''
